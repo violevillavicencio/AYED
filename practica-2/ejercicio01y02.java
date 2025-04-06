@@ -1,4 +1,5 @@
 package practica2.ejercicio01y02;
+import implCola.Queue; 
 
 public class BinaryTree<T> {
 	private T data;
@@ -114,6 +115,31 @@ public class BinaryTree<T> {
                     ab.addLeftChild(this.getRightChild().espejo());
                 }    
                 return ab;
+            }
+        }
+        
+        // imprimir entre niveles 
+        public void imprimirEntreNiveles(int n, int m){
+            Queue<BinaryTree> cola = new Queue<BinaryTree>(); 
+            cola.enqueue(this);
+            cola.enqueue(null);
+            
+            int nivel = 0; 
+            while(!cola.isEmpty() && (nivel <= m)){
+                BinaryTree<T> ab = cola.dequeue(); 
+                if(ab != null){
+                    if(ab.hasLeftChild())
+                        cola.enqueue(ab.leftChild);
+                    if(ab.hasRightChild())
+                        cola.enqueue(ab.rightChild);
+                    if(nivel >= n)
+                        System.out.println(ab.getData() + " ");
+                }
+                else if(!cola.isEmpty()){
+                        System.out.println(" ");
+                        cola.enqueue(null);
+                        nivel+=1;
+                }
             }
         }
 
