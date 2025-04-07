@@ -36,7 +36,7 @@ public class ProfundidadDeArbolBinario {
                }
            } else if (!cola.isEmpty()) {
                nivel++;
-               if (nivel > p) break; // ✅ Cortamos el recorrido si ya pasamos el nivel deseado
+               if (nivel > p) break; // Cortamos el recorrido si ya pasamos el nivel deseado
                cola.enqueue(null);
            }
        }
