@@ -39,11 +39,13 @@ public class Parcial {
                 if (nivel == distancia) {
                     listaAmigos.add(aux.getData());
                 }
-                for (Edge<String> e : red.getEdges(aux)) {
-                    Vertex<String> vecino = e.getTarget();
-                    if (!marcas[vecino.getPosition()]) {
-                        marcas[vecino.getPosition()] = true;
-                        cola.enqueue(vecino);
+                else{ 
+                    for (Edge<String> e : red.getEdges(aux)) {
+                        Vertex<String> vecino = e.getTarget();
+                        if (!marcas[vecino.getPosition()]) {
+                            marcas[vecino.getPosition()] = true;
+                            cola.enqueue(vecino);
+                        }
                     }
                 }
             } else if (!cola.isEmpty()) {
